@@ -28,15 +28,15 @@ const Home = () => {
     }
 
   return (
-    <div>
-       <div>
+    <div className='grid grid-cols-4 p-8'>
+       <div className='hidden md:flex'>
            <SideNavGenresList selectedGenreId={(genreId) => getGameList(genreId)}/>
        </div>
        {gameList?.length&&gameListByGenre?.length>0 ?
-            <div>
-                <Slider />
-                <TrendingGameList />
-                <PopularGameList />
+            <div className='md:col-span-3 col-span-4 px-3'>
+                <Slider game={gameListByGenre[0]} />
+                <TrendingGameList gameList={gameList} />
+                <PopularGameList gameList={gameListByGenre} />
             </div>
         :null}
     </div>
